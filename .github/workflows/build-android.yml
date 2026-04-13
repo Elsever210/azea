@@ -25,7 +25,10 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
+
+      - name: Accept Android SDK licenses
+        run: yes | sdkmanager --licenses || true
 
       - name: Sync Capacitor Android
         run: npx cap sync android

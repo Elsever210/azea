@@ -17,29 +17,33 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Sync Capacitor iOS
         run: npx cap sync ios
 
+      - name: Resolve Swift packages
+        run: |
+          cd ios/App
+          xcodebuild -resolvePackageDependencies -project App.xcodeproj -scheme App
+
       - name: Build iOS (unsigned)
         run: |
           cd ios/App
-          xcodebuild -workspace App.xcworkspace \
+          xcodebuild -project App.xcodeproj \
             -scheme App \
             -configuration Debug \
             -sdk iphonesimulator \
-            -destination 'generic/platform=iOS Simulator' \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
             -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGN_IDENTITY="" \
-            | xcpretty || true
+            CODE_SIGN_IDENTITY=""
 
       - name: Create .app archive
         run: |
-          cd ios/App/build/Build/Products/Debug-iphonesimulator
-          zip -r "$GITHUB_WORKSPACE/VSF-Global-Cargo-ios-simulator.zip" App.app
+          APP_PATH=$(find ios/App/build/Build/Products -name "App.app" -type d | head -1)
+          zip -r VSF-Global-Cargo-ios-simulator.zip "$APP_PATH"
 
       - uses: actions/upload-artifact@v4
         with:
