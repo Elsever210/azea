@@ -28,24 +28,13 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y build-essential python3
 
       - name: Install dependencies
-        run: npm install 2>&1 || true
-
-      - name: Debug — check npm install results
-        run: |
-          echo "=== node_modules/@capacitor ==="
-          ls -la node_modules/@capacitor/ 2>&1 || echo "NO @capacitor"
-          echo "=== npx cap --version ==="
-          npx cap --version 2>&1 || echo "cap not found"
-          echo "=== public/ ==="
-          ls public/ | head -10
-          echo "=== capacitor.config.json ==="
-          cat capacitor.config.json
+        run: npm install
 
       - name: Accept Android SDK licenses
         run: yes | sdkmanager --licenses || true
 
       - name: Copy web assets to Android
-        run: npx cap copy android 2>&1
+        run: npx cap copy android
 
       - name: Build debug APK
         run: |
