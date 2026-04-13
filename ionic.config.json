@@ -1,0 +1,8 @@
+{
+  "name": "VSF Global Cargo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom",
+  "id": "0303612e"
+}
