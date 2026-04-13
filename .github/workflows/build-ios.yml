@@ -16,8 +16,8 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (skip native modules)
+        run: npm install --ignore-scripts
 
       - name: Copy web assets to iOS
         run: npx cap copy ios
