@@ -24,6 +24,9 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Install native build tools
+        run: sudo apt-get update && sudo apt-get install -y build-essential python3
+
       - name: Install dependencies
         run: npm install
 
@@ -31,7 +34,7 @@ jobs:
         run: yes | sdkmanager --licenses || true
 
       - name: Sync Capacitor Android
-        run: npx cap sync android
+        run: npx cap sync android --verbose || (echo '--- cap sync failed, trying copy+update ---' && npx cap copy android && npx cap update android)
 
       - name: Build debug APK
         run: |

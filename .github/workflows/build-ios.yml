@@ -20,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Sync Capacitor iOS
-        run: npx cap sync ios
+        run: npx cap sync ios --verbose || (echo '--- cap sync failed, trying copy+update ---' && npx cap copy ios && npx cap update ios)
 
       - name: Resolve Swift packages
         run: |
