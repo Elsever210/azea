@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">VSF Global Cargo</string>
+    <string name="title_activity_main">VSF Global Cargo</string>
+    <string name="package_name">com.vsf.globalcargo</string>
+    <string name="custom_url_scheme">com.vsf.globalcargo</string>
+</resources>

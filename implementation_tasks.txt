@@ -1,0 +1,8 @@
+1. Demo rejimindən çıxarılmış və env-konfiqurasiyalı baza quruluşunu qoruyaraq tapşırıqların sıralı icra planını hazırlamaq.
+2. Admin, operator və müştəri rolları üçün RBAC giriş və icazə mexanizmini tətbiq etmək.
+3. FedEx, UPS və DHL daşıyıcı API-ləri ilə göndəriş izləmə inteqrasiyası üçün modul qurmaq.
+4. Twilio SMS və SendGrid email xidmətləri ilə real vaxt bildiriş inteqrasiyası əlavə etmək.
+5. Məlumat bazası sxemini, indeksləri və sorğu axınlarını yüksək həcmli göndərişlər üçün optimallaşdırmaq.
+6. Əsas funksiyalar üçün vahid və inteqrasiya testləri yazmaq.
+7. README və əlaqəli sənədləri yeni imkanlar, quraşdırma və deployment addımları ilə yeniləmək.
+8. Bütün maddələrin yekun yoxlamasını aparmaq, çatışmayan hissələri tamamlayıb hesabat hazırlamaq.

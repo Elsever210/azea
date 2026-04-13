@@ -1,0 +1,22 @@
+{
+  "name": "VSF Global Cargo",
+  "short_name": "CargoOps",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#04060c",
+  "theme_color": "#04060c",
+  "icons": [
+    {
+      "src": "icons/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/app-icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

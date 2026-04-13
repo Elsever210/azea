@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>VSF Global Cargo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="icons/app-icon.svg" />
+  <link rel="apple-touch-icon" href="icons/app-icon.svg" />
+  <meta name="theme-color" content="#04060c" />
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true" focusable="false">
+  <symbol id="i-dashboard" viewBox="0 0 24 24"><path d="M4 13h4v7H4zM10 9h4v11h-4zM16 5h4v15h-4z"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 11h6M9 15h6"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="8" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 12h2M13 12h2M9 16h2M13 16h2"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 5h2l2 10h10l2-7H7"/><circle cx="10" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M2 13l20-7-7 20-2-8-8-5z"/></symbol>
+  <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 12l6-2"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6v10H3z"/><path d="M9 20v-5h6v5"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="6" ry="2.5"/><path d="M6 6v6c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6"/><path d="M8 16v2.5c0 1.1 1.8 2 4 2s4-.9 4-2V16"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0v5l2 2H4l2-2z"/><path d="M10 18a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M4 18a5 5 0 0 1 10 0M14 18a4 4 0 0 1 7 0"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3h4l1 4-2 2a14 14 0 0 0 5 5l2-2 4 1v4c0 1-1 2-2 2C10 19 5 14 5 7c0-1 1-2 2-2z"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h7M14 6h6M10 6v4"/><path d="M4 12h3M10 12h10M7 12v4"/><path d="M4 18h9M16 18h4M13 18v4"/></symbol>
+  <symbol id="i-file-check" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9 15l2 2 4-4"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 13l5 5L20 7"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14 4c4 0 6 2 6 6-2 2-4 4-7 5l-4-4c1-3 3-5 5-7z"/><path d="M10 14l-3 3M9 9L6 6"/></symbol>
+  <symbol id="i-trend-up" viewBox="0 0 24 24"><path d="M4 16l6-6 4 4 6-7"/><path d="M16 7h4v4"/></symbol>
+  <symbol id="i-trend-down" viewBox="0 0 24 24"><path d="M4 8l6 6 4-4 6 7"/><path d="M16 17h4v-4"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v3a4 4 0 0 1-8 0z"/><path d="M10 14h4v3h-4z"/><path d="M8 20h8"/><path d="M8 7H5a2 2 0 0 0 2 3M16 7h3a2 2 0 0 1-2 3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20a7 7 0 0 1 14 0"/></symbol>
+</svg>
+
+<!-- LOGIN -->
+<div id="loginView">
+  <div class="login-box">
+    <div class="logo-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <h1>VSF <span class="brand-accent">Global</span> Cargo</h1>
+    <p class="brand-tagline" data-i18n="login.tagline">Beynəlxalq Yük Daşıma Sistemi</p>
+    <p class="muted" data-i18n="login.subtitle">Giriş edin</p>
+    <input id="loginUser" placeholder="İstifadəçi adı" autocomplete="username" data-i18n-placeholder="login.userPlaceholder" />
+    <input id="loginPass" type="password" placeholder="Şifrə" autocomplete="current-password" data-i18n-placeholder="login.passPlaceholder" />
+    <button class="btn" id="btnLogin" data-i18n="login.button">Giriş</button>
+    <p id="loginError" class="error hidden"></p>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="appView" class="hidden">
+  <header>
+    <div class="wrap">
+      <div class="row">
+        <div class="header-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h1 data-i18n="header.title">VSF Global Cargo</h1>
+        <span class="pill" id="userBadge"></span>
+        <span class="pill role-pill" id="roleBadge"></span>
+        <div class="right row">
+          <select id="langSelect" class="btn ghost small" style="min-width:80px">
+            <option value="az">🇦🇿 AZ</option>
+            <option value="en">🇬🇧 EN</option>
+            <option value="tr">🇹🇷 TR</option>
+            <option value="ru">🇷🇺 RU</option>
+            <option value="cn">🇨🇳 CN</option>
+          </select>
+          <button class="btn ghost small" id="btnInstall" style="display:none" data-i18n="header.install">Quraşdır</button>
+          <button class="btn ghost small" id="btnLogout" data-i18n="header.logout">Çıxış</button>
+          <button class="btn ghost small mobile-menu-btn" id="btnMenuToggle" aria-label="Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <nav id="nav">
+        <!-- All roles -->
+        <button class="navbtn active" data-view="dashboard"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-dashboard"></use></svg></span><span data-i18n="nav.dashboard">İdarə paneli</span></button>
+
+        <!-- Customer sees: my-orders, my-shipments, tracking -->
+        <button class="navbtn customer-view" data-view="myorders"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-clipboard"></use></svg></span><span data-i18n="nav.myorders">Sifarişlərim</span></button>
+        <button class="navbtn customer-view" data-view="myshipments"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-truck"></use></svg></span><span data-i18n="nav.myshipments">Göndərişlərim</span></button>
+        <button class="navbtn" data-view="calculator"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-calc"></use></svg></span><span data-i18n="nav.calculator">Kargo Kalkulyator</span></button>
+
+        <!-- Operator/Admin see full operational panels -->
+        <button class="navbtn ops-only" data-view="products"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-box"></use></svg></span><span data-i18n="nav.products">Məhsullar</span></button>
+        <button class="navbtn ops-only" data-view="orders"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-cart"></use></svg></span><span data-i18n="nav.orders">Sifarişlər</span></button>
+        <button class="navbtn ops-only" data-view="shipments"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-plane"></use></svg></span><span data-i18n="nav.shipments">Göndərişlər</span></button>
+        <button class="navbtn" data-view="tracking"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-radar"></use></svg></span><span data-i18n="nav.tracking">Canlı İzləmə</span></button>
+        <button class="navbtn ops-only" data-view="reports"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-folder"></use></svg></span><span data-i18n="nav.reports">Hesabatlar</span></button>
+        <button class="navbtn ops-only" data-view="inventory"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-warehouse"></use></svg></span><span data-i18n="nav.inventory">Anbar İdarəetmə</span></button>
+        <button class="navbtn ops-only" data-view="finance"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-coins"></use></svg></span><span data-i18n="nav.finance">Maliyyə</span></button>
+        <button class="navbtn ops-only" data-view="notifications"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-bell"></use></svg></span><span data-i18n="nav.notifications">Bildirişlər</span></button>
+
+        <!-- Admin only -->
+        <button class="navbtn admin-only" data-view="users"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-users"></use></svg></span><span data-i18n="nav.users">İstifadəçilər</span></button>
+        <button class="navbtn admin-only" data-view="contacts"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-phone"></use></svg></span><span data-i18n="nav.contacts">Əlaqə & Ünvanlar</span></button>
+        <button class="navbtn admin-only" data-view="calcparams"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-sliders"></use></svg></span><span data-i18n="nav.calcparams">Kalkulyator Parametrləri</span></button>
+        <button class="navbtn admin-only" data-view="logs"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-file-check"></use></svg></span><span data-i18n="nav.logs">Audit Logları</span></button>
+        <button class="navbtn" data-view="settings"><span class="nav-icon"><svg viewBox="0 0 24 24"><use href="#i-settings"></use></svg></span><span data-i18n="nav.settings">Ayarlar</span></button>
+      </nav>
+
+      <main>
+        <!-- ═══ DASHBOARD ═══ -->
+        <section id="view-dashboard">
+          <!-- Admin/Operator Dashboard -->
+          <div id="dashAdmin">
+            <div class="cards">
+              <div class="card kpi-card kpi-blue"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-cart"></use></svg></div><div class="kpi-label" data-i18n="dashboard.activeConsignments">Aktiv Göndərmələr</div><div class="kpi" id="kpiOpenOrders">0</div></div>
+              <div class="card kpi-card kpi-yellow"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-plane"></use></svg></div><div class="kpi-label" data-i18n="dashboard.inTransit">Tranzitdə</div><div class="kpi" id="kpiTransit">0</div></div>
+              <div class="card kpi-card kpi-purple"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-warehouse"></use></svg></div><div class="kpi-label" data-i18n="dashboard.warehouseUnits">Anbar Vahidləri</div><div class="kpi" id="kpiInventory">0</div></div>
+              <div class="card kpi-card kpi-cyan"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-coins"></use></svg></div><div class="kpi-label" data-i18n="dashboard.netMargin">Xalis Mənfəət</div><div class="kpi mono" id="kpiProfit">$0.00</div></div>
+            </div>
+            <div class="card" style="margin-top:12px">
+              <div style="font-weight:900" data-i18n="dashboard.recentConsignments">Son Göndərmələr</div>
+              <table><thead><tr><th>ID</th><th data-i18n="table.consignee">Alıcı</th><th data-i18n="table.status">Status</th><th data-i18n="table.value">Dəyər</th></tr></thead><tbody id="dashOrders"></tbody></table>
+            </div>
+            <div class="card" style="margin-top:12px">
+              <div style="font-weight:900" data-i18n="dashboard.trackingFeed">İzləmə Axını</div>
+              <div class="log" id="dashTrackLog"></div>
+            </div>
+          </div>
+
+          <!-- Customer Dashboard -->
+          <div id="dashCustomer" class="hidden">
+            <div class="cards">
+              <div class="card kpi-card kpi-blue"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-clipboard"></use></svg></div><div class="kpi-label" data-i18n="dashboard.myOrders">Sifarişlərim</div><div class="kpi" id="kpiMyOrders">0</div></div>
+              <div class="card kpi-card kpi-yellow"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-plane"></use></svg></div><div class="kpi-label" data-i18n="dashboard.myShipments">Göndərişlərim</div><div class="kpi" id="kpiMyShipments">0</div></div>
+              <div class="card kpi-card kpi-green"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-check"></use></svg></div><div class="kpi-label" data-i18n="dashboard.delivered">Çatdırılıb</div><div class="kpi" id="kpiMyDelivered">0</div></div>
+              <div class="card kpi-card kpi-cyan"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-rocket"></use></svg></div><div class="kpi-label" data-i18n="dashboard.inProgress">Prosesdə</div><div class="kpi" id="kpiMyProgress">0</div></div>
+            </div>
+            <div class="card" style="margin-top:12px">
+              <div style="font-weight:900" data-i18n="dashboard.myRecentOrders">Son Sifarişlərim</div>
+              <table><thead><tr><th>ID</th><th data-i18n="table.status">Status</th><th data-i18n="table.value">Dəyər</th><th data-i18n="table.date">Tarix</th></tr></thead><tbody id="dashMyOrders"></tbody></table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ CUSTOMER: MY ORDERS ═══ -->
+        <section id="view-myorders" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="myorders.header">Sifarişlərim</div>
+              <div class="right row">
+                <input id="myOrderSearch" placeholder="Axtar..." data-i18n-placeholder="search.placeholder" />
+              </div>
+            </div>
+            <table><thead><tr>
+              <th>ID</th><th data-i18n="table.status">Status</th>
+              <th data-i18n="table.items">Bağlama</th><th data-i18n="table.value">Dəyər</th>
+              <th data-i18n="table.date">Tarix</th>
+            </tr></thead><tbody id="tblMyOrders"></tbody></table>
+          </div>
+        </section>
+
+        <!-- ═══ CUSTOMER: MY SHIPMENTS ═══ -->
+        <section id="view-myshipments" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="myshipments.header">Göndərişlərim</div>
+            </div>
+            <table><thead><tr>
+              <th>ID</th><th data-i18n="table.route">Marşrut</th><th data-i18n="table.status">Status</th>
+              <th>ETA</th><th>AWB</th>
+            </tr></thead><tbody id="tblMyShipments"></tbody></table>
+          </div>
+        </section>
+
+        <!-- ═══ CARGO CALCULATOR ═══ -->
+        <section id="view-calculator" class="hidden">
+          <div class="card">
+            <div style="font-weight:900" data-i18n="calc.header">Kargo Kalkulyator</div>
+            <p class="muted" style="margin:8px 0" data-i18n="calc.description">Göndərişinizin təxmini qiymətini hesablayın</p>
+
+            <div class="calc-grid">
+              <div class="calc-form">
+                <div style="font-weight:700;margin-bottom:8px" data-i18n="calc.packageInfo">Bağlama Məlumatları</div>
+                <div class="toolbar">
+                  <div class="calc-field">
+                    <label data-i18n="calc.weight">Çəki (kq)</label>
+                    <input id="calcWeight" type="number" step="0.1" min="0.1" placeholder="0.0" />
+                  </div>
+                  <div class="calc-field">
+                    <label data-i18n="calc.length">Uzunluq (sm)</label>
+                    <input id="calcLength" type="number" step="1" min="1" placeholder="0" />
+                  </div>
+                  <div class="calc-field">
+                    <label data-i18n="calc.width">En (sm)</label>
+                    <input id="calcWidth" type="number" step="1" min="1" placeholder="0" />
+                  </div>
+                  <div class="calc-field">
+                    <label data-i18n="calc.height">Hündürlük (sm)</label>
+                    <input id="calcHeight" type="number" step="1" min="1" placeholder="0" />
+                  </div>
+                </div>
+
+                <div style="font-weight:700;margin:16px 0 8px" data-i18n="calc.shippingDetails">Göndərmə Detalları</div>
+                <div class="toolbar">
+                  <div class="calc-field" style="flex:1">
+                    <label data-i18n="calc.route">Marşrut</label>
+                    <select id="calcRoute">
+                      <option value="air">CN→AZ Hava Yükü (Air Freight)</option>
+                      <option value="sea">CN→AZ Dəniz Yükü (Sea Freight)</option>
+                      <option value="express">CN→AZ Ekspress Kargo (Express)</option>
+                      <option value="rail">CN→AZ Dəmiryolu (Rail Freight)</option>
+                      <option value="lastmile">AZ Son Mil Çatdırılma</option>
+                    </select>
+                  </div>
+                  <div class="calc-field">
+                    <label data-i18n="calc.packageType">Bağlama Növü</label>
+                    <select id="calcPackageType">
+                      <option value="standard">Standart</option>
+                      <option value="fragile">Həssas / Qırılğan</option>
+                      <option value="dangerous">Təhlükəli</option>
+                      <option value="oversized">Böyük Ölçülü</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="toolbar">
+                  <div class="calc-field">
+                    <label data-i18n="calc.declaredValue">Bəyan Edilən Dəyər ($)</label>
+                    <input id="calcDeclaredValue" type="number" step="0.01" min="0" placeholder="0.00" />
+                  </div>
+                  <div class="calc-field">
+                    <label data-i18n="calc.insurance">Sığorta</label>
+                    <select id="calcInsurance">
+                      <option value="0">Yox</option>
+                      <option value="1">Bəli</option>
+                    </select>
+                  </div>
+                  <div class="calc-field">
+                    <label data-i18n="calc.quantity">Bağlama Sayı</label>
+                    <input id="calcQty" type="number" min="1" value="1" placeholder="1" />
+                  </div>
+                </div>
+                <div class="toolbar" style="margin-top:16px">
+                  <button class="btn neon" id="btnCalcCompute" data-i18n="calc.calculate">Hesabla</button>
+                  <button class="btn secondary" id="btnCalcReset" data-i18n="calc.reset">Sıfırla</button>
+                </div>
+              </div>
+
+              <div class="calc-result" id="calcResultPanel">
+                <div style="font-weight:700;margin-bottom:12px" data-i18n="calc.resultTitle">Hesablama Nəticəsi</div>
+                <div class="calc-result-rows" id="calcResultRows">
+                  <div class="calc-empty" data-i18n="calc.enterData">Məlumatları daxil edib "Hesabla" düyməsinə basın</div>
+                </div>
+                <div class="calc-total-box hidden" id="calcTotalBox">
+                  <div class="calc-total-row">
+                    <span data-i18n="calc.totalCost">Ümumi Qiymət</span>
+                    <span class="calc-total-value mono" id="calcTotalValue">$0.00</span>
+                  </div>
+                  <div class="calc-total-row muted">
+                    <span data-i18n="calc.estimatedDays">Təxmini Müddət</span>
+                    <span class="mono" id="calcEstDays">—</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ PRODUCTS ═══ -->
+        <section id="view-products" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="products.header">Məhsullar</div>
+              <div class="right row">
+                <input id="prodSearch" placeholder="Axtar..." data-i18n-placeholder="search.placeholder" />
+                <button class="btn" id="btnAddProduct" data-i18n="products.addProduct">+ Məhsul</button>
+              </div>
+            </div>
+            <table><thead><tr>
+              <th>SKU</th><th data-i18n="table.name">Ad</th><th>HS</th>
+              <th data-i18n="table.cost">Maya</th><th data-i18n="table.sell">Satış</th>
+              <th data-i18n="table.fragile">Həssas</th><th data-i18n="table.actions">Əməliyyat</th>
+            </tr></thead><tbody id="tblProducts"></tbody></table>
+          </div>
+          <div class="card" style="margin-top:12px" id="productForm">
+            <div style="font-weight:900" data-i18n="products.addEdit">Məhsul əlavə / redaktə</div>
+            <div class="toolbar">
+              <input id="pSKU" placeholder="SKU" />
+              <input id="pName" placeholder="Ad" style="flex:1;min-width:200px" />
+              <input id="pHS" placeholder="HS kodu" />
+              <select id="pFragile"><option value="0">Həssas: Xeyr</option><option value="1">Həssas: Bəli</option></select>
+            </div>
+            <div class="toolbar">
+              <input id="pCost" type="number" step="0.01" placeholder="Maya ($)" />
+              <input id="pSell" type="number" step="0.01" placeholder="Satış ($)" />
+              <input id="pNotes" placeholder="Qeyd" style="flex:1;min-width:200px" />
+              <button class="btn" id="btnSaveProduct" data-i18n="products.save">Yadda saxla</button>
+              <button class="btn secondary" id="btnClearProduct" data-i18n="products.clear">Təmizlə</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ ORDERS ═══ -->
+        <section id="view-orders" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="orders.header">Göndərmə Sifarişləri</div>
+              <div class="right row">
+                <input id="orderSearch" placeholder="Axtar..." data-i18n-placeholder="search.placeholder" />
+                <button class="btn" id="btnAddOrder" data-i18n="orders.newOrder">+ Yeni Göndərmə</button>
+              </div>
+            </div>
+            <table><thead><tr>
+              <th>ID</th><th data-i18n="table.consignee">Alıcı</th><th data-i18n="table.status">Status</th>
+              <th data-i18n="table.items">Bağlama</th><th data-i18n="table.value">Dəyər</th><th data-i18n="table.actions">Əməliyyat</th>
+            </tr></thead><tbody id="tblOrders"></tbody></table>
+          </div>
+          <div class="card" style="margin-top:12px" id="orderForm">
+            <div style="font-weight:900" data-i18n="orders.createEdit">Göndərmə Yarat / Redaktə</div>
+            <div class="toolbar">
+              <input id="oCustomer" placeholder="Alıcı adı" style="flex:1;min-width:200px" data-i18n-placeholder="orders.consigneeName" />
+              <input id="oPhone" placeholder="Telefon" />
+              <input id="oAddress" placeholder="Ünvan" style="flex:1;min-width:200px" />
+            </div>
+            <div class="toolbar">
+              <select id="oStatus">
+                <option value="NEW">YENİ</option><option value="PAID">ÖDƏNİLİB</option>
+                <option value="PICK_PACK">YIĞIM/QABLAŞDIRMA</option><option value="SHIPPED">GÖNDƏRİLİB</option>
+                <option value="DELIVERED">ÇATDIRILDI</option><option value="CANCELLED">LƏĞV</option>
+              </select>
+              <input id="oLogistics" type="number" step="0.01" placeholder="Navlun ($)" />
+              <input id="oCustoms" type="number" step="0.01" placeholder="Gömrük ($)" />
+              <input id="oNotes" placeholder="Qeyd" style="flex:1;min-width:200px" />
+            </div>
+            <div class="toolbar">
+              <select id="oProduct" style="flex:1;min-width:200px"></select>
+              <input id="oQty" type="number" min="1" placeholder="Say" style="width:100px" />
+              <button class="btn secondary" id="btnAddItem">+ Əlavə et</button>
+              <span class="tag"><b id="oTotal">$0.00</b></span>
+            </div>
+            <table><thead><tr><th>SKU</th><th data-i18n="table.name">Ad</th><th data-i18n="table.qty">Say</th><th data-i18n="table.unitSell">Qiymət</th><th data-i18n="table.line">Cəm</th><th></th></tr></thead><tbody id="oItems"></tbody></table>
+            <div class="toolbar" style="margin-top:12px">
+              <button class="btn" id="btnSaveOrder" data-i18n="orders.save">Yadda saxla</button>
+              <button class="btn secondary" id="btnClearOrder" data-i18n="orders.clear">Təmizlə</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ SHIPMENTS ═══ -->
+        <section id="view-shipments" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="shipments.header">Yük Daşımaları</div>
+              <div class="right row">
+                <input id="shipSearch" placeholder="Axtar..." data-i18n-placeholder="search.placeholder" />
+                <button class="btn" id="btnAddShipment" data-i18n="shipments.newShipment">+ Yeni Daşıma</button>
+              </div>
+            </div>
+            <table><thead><tr>
+              <th>ID</th><th data-i18n="table.route">Marşrut</th><th data-i18n="table.status">Status</th>
+              <th>ETA</th><th>AWB</th><th data-i18n="table.consignments">Göndərmələr</th><th data-i18n="table.actions">Əməliyyat</th>
+            </tr></thead><tbody id="tblShipments"></tbody></table>
+          </div>
+          <div class="card" style="margin-top:12px" id="shipmentForm">
+            <div style="font-weight:900" data-i18n="shipments.createEdit">Yük Daşıma Yarat / Redaktə</div>
+            <div class="toolbar">
+              <select id="sRoute">
+                <option value="CN→AZ Air Freight">CN→AZ Hava Yükü</option>
+                <option value="CN→AZ Sea Freight">CN→AZ Dəniz Yükü</option>
+                <option value="CN→AZ Express Cargo">CN→AZ Ekspress Kargo</option>
+                <option value="CN→AZ Rail Freight">CN→AZ Dəmiryolu Yükü</option>
+                <option value="AZ Last-mile Delivery">AZ Son Mil Çatdırılma</option>
+              </select>
+              <select id="sStatus">
+                <option value="CREATED">YARADILDI</option>
+                <option value="AT_CN_WAREHOUSE">ÇİN ANBARINDA</option>
+                <option value="IN_TRANSIT">TRANZİTDƏ</option>
+                <option value="CUSTOMS">GÖMRÜKDƏ</option>
+                <option value="AT_AZ_WAREHOUSE">AZ ANBARINDA</option>
+                <option value="DELIVERED">ÇATDIRILDI</option>
+              </select>
+              <input id="sETA" type="date" />
+              <input id="sAWB" placeholder="AWB / Tracking #" style="flex:1;min-width:200px" />
+            </div>
+            <div class="toolbar">
+              <select id="sOrders" multiple style="flex:1;min-width:200px;min-height:44px"></select>
+              <button class="btn" id="btnSaveShipment" data-i18n="shipments.save">Yadda saxla</button>
+              <button class="btn secondary" id="btnClearShipment" data-i18n="shipments.clear">Təmizlə</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ TRACKING ═══ -->
+        <section id="view-tracking" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="tracking.header"><span class="live-dot" style="margin-right:8px"></span>Canlı İzləmə</div>
+              <div class="right row">
+                <select id="tShipment" style="min-width:200px"></select>
+                <select id="tProvider" style="min-width:120px">
+                  <option value="demo">Demo</option>
+                  <option value="fedex">FedEx</option>
+                  <option value="ups">UPS</option>
+                  <option value="dhl">DHL</option>
+                  <option value="maersk">Maersk</option>
+                  <option value="cosco">COSCO</option>
+                </select>
+                <button class="btn secondary" id="btnTrackNow" data-i18n="tracking.trackNow">İzlə</button>
+              </div>
+            </div>
+            <div class="split" style="margin-top:12px">
+              <div class="card">
+                <div style="font-weight:900" data-i18n="tracking.timeline">Zaman Xətti</div>
+                <div class="toolbar">
+                  <input id="tEvent" placeholder="Hadisə" style="flex:1;min-width:200px" />
+                  <input id="tLoc" placeholder="Məkan" style="min-width:150px" />
+                  <button class="btn secondary" id="btnAddEvent">+ Əlavə et</button>
+                </div>
+                <div class="log" id="tTimeline">Göndəriş seçin...</div>
+              </div>
+              <div class="card">
+                <div style="font-weight:900" data-i18n="tracking.liveFeed">Canlı Axın</div>
+                <div class="log" id="tLiveLog"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ REPORTS ═══ -->
+        <section id="view-reports" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="reports.header">Hesabatlar</div>
+              <div class="right row">
+                <select id="rLinkType"><option value="none">Əlaqəsiz</option><option value="shipment">Göndəriş</option><option value="order">Sifariş</option></select>
+                <select id="rLinkId" style="min-width:200px"></select>
+                <input id="rTag" placeholder="Etiket" style="width:150px" />
+                <label class="btn" style="cursor:pointer"><span data-i18n="reports.upload">+ Yüklə</span><input id="rFile" type="file" accept=".pdf,.csv,.json,.xlsx,.png,.jpg" style="display:none"></label>
+              </div>
+            </div>
+            <input id="rSearch" placeholder="Axtar..." style="width:100%;margin:10px 0" data-i18n-placeholder="search.placeholder" />
+            <table><thead><tr>
+              <th data-i18n="table.file">Fayl</th><th data-i18n="table.type">Tip</th><th data-i18n="table.tag">Etiket</th>
+              <th data-i18n="table.linked">Əlaqə</th><th data-i18n="table.size">Ölçü</th><th data-i18n="table.actions">Əməliyyat</th>
+            </tr></thead><tbody id="tblReports"></tbody></table>
+          </div>
+        </section>
+
+        <!-- ═══ INVENTORY ═══ -->
+        <section id="view-inventory" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="inventory.header">Anbar İdarəetmə</div>
+              <div class="right row">
+                <input id="invSearch" placeholder="Axtar..." data-i18n-placeholder="search.placeholder" />
+                <button class="btn secondary" id="btnRebuildInventory" data-i18n="inventory.rebuildButton">Yenidən hesabla</button>
+              </div>
+            </div>
+            <div class="toolbar">
+              <select id="invSKU" style="flex:1;min-width:200px"></select>
+              <input id="invDelta" type="number" placeholder="+/- say" style="width:150px" />
+              <input id="invReason" placeholder="Səbəb" style="flex:1;min-width:150px" />
+              <button class="btn secondary" id="btnAdjustInv" data-i18n="inventory.adjustButton">Düzəliş et</button>
+            </div>
+            <table><thead><tr><th>SKU</th><th data-i18n="table.name">Ad</th><th data-i18n="table.onHand">Anbarda</th><th data-i18n="table.fragile">Həssas</th></tr></thead><tbody id="tblInventory"></tbody></table>
+          </div>
+        </section>
+
+        <!-- ═══ FINANCE ═══ -->
+        <section id="view-finance" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="finance.header">Maliyyə Paneli</div>
+              <div class="right row">
+                <select id="fPeriod"><option value="ALL">Hamısı</option><option value="30">30 gün</option><option value="90">90 gün</option></select>
+                <button class="btn secondary" id="btnRecalcFinance" data-i18n="finance.calculate">Hesabla</button>
+              </div>
+            </div>
+            <div class="cards" style="margin-top:12px">
+              <div class="card kpi-card kpi-green"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-trend-up"></use></svg></div><div class="kpi-label" data-i18n="finance.revenue">Gəlir</div><div class="kpi mono" id="fRevenue">$0.00</div></div>
+              <div class="card kpi-card kpi-red"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-trend-down"></use></svg></div><div class="kpi-label" data-i18n="finance.costs">Xərclər</div><div class="kpi mono" id="fCosts">$0.00</div></div>
+              <div class="card kpi-card kpi-cyan"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-coins"></use></svg></div><div class="kpi-label" data-i18n="finance.profit">Xalis Mənfəət</div><div class="kpi mono" id="fProfit">$0.00</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ NOTIFICATIONS ═══ -->
+        <section id="view-notifications" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="nav.notifications">Bildirişlər</div>
+              <div class="right row">
+                <button class="btn" id="btnNewNotif">+ Bildiriş göndər</button>
+              </div>
+            </div>
+            <div class="card hidden" style="margin-top:12px" id="notifForm">
+              <div class="toolbar">
+                <select id="nType"><option value="sms">SMS</option><option value="email">Email</option></select>
+                <input id="nRecipient" placeholder="Alıcı (tel/email)" style="flex:1;min-width:200px" />
+                <input id="nSubject" placeholder="Mövzu (email)" style="flex:1;min-width:150px" />
+              </div>
+              <textarea id="nBody" placeholder="Mətn" style="width:100%;margin:8px 0"></textarea>
+              <button class="btn" id="btnSendNotif">Göndər</button>
+            </div>
+            <table style="margin-top:12px"><thead><tr>
+              <th>Tip</th><th>Alıcı</th><th>Mövzu</th><th>Status</th><th>Tarix</th>
+            </tr></thead><tbody id="tblNotifications"></tbody></table>
+          </div>
+        </section>
+
+        <!-- ═══ USERS (admin only) ═══ -->
+        <section id="view-users" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="nav.users">İstifadəçilər</div>
+              <div class="right row">
+                <button class="btn" id="btnAddUser">+ İstifadəçi</button>
+              </div>
+            </div>
+            <div class="card hidden" style="margin-top:12px" id="userForm">
+              <div class="toolbar">
+                <input id="uUsername" placeholder="İstifadəçi adı" />
+                <input id="uEmail" placeholder="Email" style="flex:1;min-width:200px" />
+                <input id="uPassword" type="password" placeholder="Şifrə" />
+                <select id="uRole"><option value="operator">Operator</option><option value="customer">Müştəri</option><option value="admin">Admin</option></select>
+              </div>
+              <div class="toolbar">
+                <input id="uFullName" placeholder="Tam ad" style="flex:1;min-width:200px" />
+                <input id="uPhone" placeholder="Telefon" />
+                <button class="btn" id="btnSaveUser">Yadda saxla</button>
+              </div>
+            </div>
+            <table style="margin-top:12px"><thead><tr>
+              <th>ID</th><th>İstifadəçi</th><th>Email</th><th>Rol</th><th>Ad</th><th>Aktiv</th><th>Əməliyyat</th>
+            </tr></thead><tbody id="tblUsers"></tbody></table>
+          </div>
+        </section>
+
+        <!-- ═══ CONTACTS & ADDRESSES (admin only) ═══ -->
+        <section id="view-contacts" class="hidden">
+          <div class="card">
+            <div style="font-weight:900" data-i18n="contacts.header">Əlaqə Vasitələri & Ünvanlar</div>
+            <p class="muted" style="margin:8px 0" data-i18n="contacts.description">Şirkətin əlaqə məlumatları, anbar ünvanları və filial koordinatları</p>
+            <div style="margin-top:12px">
+              <div style="font-weight:700;margin-bottom:8px" data-i18n="contacts.headquarters">Baş Ofis</div>
+              <div class="toolbar">
+                <input id="ctHqAddress" placeholder="Ünvan" style="flex:2;min-width:250px" />
+                <input id="ctHqPhone" placeholder="Telefon" style="flex:1;min-width:150px" />
+                <input id="ctHqEmail" placeholder="Email" style="flex:1;min-width:200px" />
+              </div>
+            </div>
+            <div style="margin-top:16px">
+              <div style="font-weight:700;margin-bottom:8px" data-i18n="contacts.cnWarehouse">Çin Anbarı (CN Warehouse)</div>
+              <div class="toolbar">
+                <input id="ctCnAddress" placeholder="Anbar ünvanı (Çin)" style="flex:2;min-width:250px" />
+                <input id="ctCnPhone" placeholder="Telefon" style="flex:1;min-width:150px" />
+                <input id="ctCnContact" placeholder="Əlaqədar şəxs" style="flex:1;min-width:150px" />
+              </div>
+            </div>
+            <div style="margin-top:16px">
+              <div style="font-weight:700;margin-bottom:8px" data-i18n="contacts.azWarehouse">Azərbaycan Anbarı (AZ Warehouse)</div>
+              <div class="toolbar">
+                <input id="ctAzAddress" placeholder="Anbar ünvanı (AZ)" style="flex:2;min-width:250px" />
+                <input id="ctAzPhone" placeholder="Telefon" style="flex:1;min-width:150px" />
+                <input id="ctAzContact" placeholder="Əlaqədar şəxs" style="flex:1;min-width:150px" />
+              </div>
+            </div>
+            <div style="margin-top:16px">
+              <div style="font-weight:700;margin-bottom:8px" data-i18n="contacts.social">Sosial Şəbəkələr & Veb</div>
+              <div class="toolbar">
+                <input id="ctWebsite" placeholder="Website" style="flex:1;min-width:200px" />
+                <input id="ctWhatsapp" placeholder="WhatsApp" style="flex:1;min-width:150px" />
+                <input id="ctTelegram" placeholder="Telegram" style="flex:1;min-width:150px" />
+                <input id="ctInstagram" placeholder="Instagram" style="flex:1;min-width:150px" />
+              </div>
+            </div>
+            <div class="toolbar" style="margin-top:16px">
+              <button class="btn" id="btnSaveContacts" data-i18n="contacts.save">Yadda saxla</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ CALCULATOR PARAMS (admin only) ═══ -->
+        <section id="view-calcparams" class="hidden">
+          <div class="card">
+            <div style="font-weight:900" data-i18n="calcparams.header">Kalkulyator Parametrləri</div>
+            <p class="muted" style="margin:8px 0" data-i18n="calcparams.description">Kargo kalkulyator əmsallarını idarə edin. Dəyişikliklər dərhal tətbiq olunur.</p>
+
+            <div style="font-weight:700;margin:16px 0 8px" data-i18n="calcparams.ratePerKg">Hər kq üçün dərəcə ($/kq)</div>
+            <div class="toolbar">
+              <div class="calc-field">
+                <label>Air Freight</label>
+                <input id="cpAirRate" type="number" step="0.01" placeholder="8.50" />
+              </div>
+              <div class="calc-field">
+                <label>Sea Freight</label>
+                <input id="cpSeaRate" type="number" step="0.01" placeholder="2.50" />
+              </div>
+              <div class="calc-field">
+                <label>Express</label>
+                <input id="cpExpressRate" type="number" step="0.01" placeholder="12.00" />
+              </div>
+              <div class="calc-field">
+                <label>Rail Freight</label>
+                <input id="cpRailRate" type="number" step="0.01" placeholder="4.00" />
+              </div>
+              <div class="calc-field">
+                <label>Last-mile</label>
+                <input id="cpLastmileRate" type="number" step="0.01" placeholder="1.50" />
+              </div>
+            </div>
+
+            <div style="font-weight:700;margin:16px 0 8px" data-i18n="calcparams.volumetric">Həcm Çəki Bölücüsü</div>
+            <div class="toolbar">
+              <div class="calc-field">
+                <label data-i18n="calcparams.volDivisor">Həcm böl. (sm³)</label>
+                <input id="cpVolDivisor" type="number" step="100" placeholder="6000" />
+              </div>
+            </div>
+
+            <div style="font-weight:700;margin:16px 0 8px" data-i18n="calcparams.surcharges">Əlavə Əmsallar</div>
+            <div class="toolbar">
+              <div class="calc-field">
+                <label data-i18n="calcparams.customsRate">Gömrük (%)</label>
+                <input id="cpCustomsRate" type="number" step="0.1" placeholder="18" />
+              </div>
+              <div class="calc-field">
+                <label data-i18n="calcparams.insuranceRate">Sığorta (%)</label>
+                <input id="cpInsuranceRate" type="number" step="0.1" placeholder="2.5" />
+              </div>
+              <div class="calc-field">
+                <label data-i18n="calcparams.fuelSurcharge">Yanacaq (%)</label>
+                <input id="cpFuelSurcharge" type="number" step="0.1" placeholder="5" />
+              </div>
+              <div class="calc-field">
+                <label data-i18n="calcparams.handlingFee">Emal ($)</label>
+                <input id="cpHandlingFee" type="number" step="0.5" placeholder="3.00" />
+              </div>
+            </div>
+
+            <div style="font-weight:700;margin:16px 0 8px" data-i18n="calcparams.packageMult">Bağlama Növü Əmsalları</div>
+            <div class="toolbar">
+              <div class="calc-field">
+                <label data-i18n="calcparams.fragileCoeff">Həssas (x)</label>
+                <input id="cpFragileCoeff" type="number" step="0.05" placeholder="1.30" />
+              </div>
+              <div class="calc-field">
+                <label data-i18n="calcparams.dangerousCoeff">Təhlükəli (x)</label>
+                <input id="cpDangerousCoeff" type="number" step="0.05" placeholder="1.60" />
+              </div>
+              <div class="calc-field">
+                <label data-i18n="calcparams.oversizedCoeff">Böyük ölçü (x)</label>
+                <input id="cpOversizedCoeff" type="number" step="0.05" placeholder="1.40" />
+              </div>
+            </div>
+
+            <div style="font-weight:700;margin:16px 0 8px" data-i18n="calcparams.etaDays">Təxmini Müddətlər (gün)</div>
+            <div class="toolbar">
+              <div class="calc-field">
+                <label>Air</label>
+                <input id="cpAirDays" type="text" placeholder="5-7" />
+              </div>
+              <div class="calc-field">
+                <label>Sea</label>
+                <input id="cpSeaDays" type="text" placeholder="25-35" />
+              </div>
+              <div class="calc-field">
+                <label>Express</label>
+                <input id="cpExpressDays" type="text" placeholder="3-5" />
+              </div>
+              <div class="calc-field">
+                <label>Rail</label>
+                <input id="cpRailDays" type="text" placeholder="15-20" />
+              </div>
+              <div class="calc-field">
+                <label>Last-mile</label>
+                <input id="cpLastmileDays" type="text" placeholder="1-3" />
+              </div>
+            </div>
+
+            <div style="font-weight:700;margin:16px 0 8px" data-i18n="calcparams.minCharge">Minimum Tarif ($)</div>
+            <div class="toolbar">
+              <div class="calc-field">
+                <label data-i18n="calcparams.minChargeValue">Min. məbləğ</label>
+                <input id="cpMinCharge" type="number" step="0.5" placeholder="5.00" />
+              </div>
+            </div>
+
+            <div class="toolbar" style="margin-top:20px">
+              <button class="btn" id="btnSaveCalcParams" data-i18n="calcparams.save">Parametrləri Saxla</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ LOGS (admin only) ═══ -->
+        <section id="view-logs" class="hidden">
+          <div class="card">
+            <div class="row">
+              <div style="font-weight:900" data-i18n="logs.header">Audit Logları</div>
+              <div class="right row">
+                <input id="logSearch" placeholder="Axtar..." data-i18n-placeholder="search.placeholder" />
+                <select id="logFilterAction" style="min-width:120px">
+                  <option value="">Hamısı</option>
+                  <option value="LOGIN">LOGIN</option>
+                  <option value="CREATE">CREATE</option>
+                  <option value="UPDATE">UPDATE</option>
+                  <option value="DELETE">DELETE</option>
+                  <option value="ADJUST">ADJUST</option>
+                  <option value="CHANGE_PASSWORD">CHANGE_PASSWORD</option>
+                </select>
+                <select id="logFilterEntity" style="min-width:120px">
+                  <option value="">Hamısı</option>
+                  <option value="user">User</option>
+                  <option value="product">Product</option>
+                  <option value="order">Order</option>
+                  <option value="shipment">Shipment</option>
+                  <option value="settings">Settings</option>
+                  <option value="inventory">Inventory</option>
+                </select>
+                <select id="logFilterUser" style="min-width:140px">
+                  <option value="">Bütün istifadəçilər</option>
+                </select>
+              </div>
+            </div>
+            <div class="cards" style="margin-top:12px">
+              <div class="card kpi-card kpi-cyan"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-clipboard"></use></svg></div><div class="kpi-label" data-i18n="logs.today">Bu gün</div><div class="kpi mono" id="logKpiToday">0</div></div>
+              <div class="card kpi-card kpi-purple"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-trophy"></use></svg></div><div class="kpi-label" data-i18n="logs.topAction">Ən çox əməliyyat</div><div class="kpi mono" id="logKpiTopAction">—</div></div>
+              <div class="card kpi-card kpi-green"><div class="kpi-icon"><svg viewBox="0 0 24 24"><use href="#i-user"></use></svg></div><div class="kpi-label" data-i18n="logs.topUser">Ən aktiv istifadəçi</div><div class="kpi mono" id="logKpiTopUser">—</div></div>
+            </div>
+            <table style="margin-top:12px"><thead><tr>
+              <th>ID</th>
+              <th data-i18n="logs.col.time">Vaxt</th>
+              <th data-i18n="logs.col.user">İstifadəçi</th>
+              <th data-i18n="logs.col.role">Rol</th>
+              <th data-i18n="logs.col.action">Əməliyyat</th>
+              <th data-i18n="logs.col.entity">Hədəf</th>
+              <th data-i18n="logs.col.entityId">ID</th>
+              <th data-i18n="logs.col.details">Detallar</th>
+              <th>IP</th>
+            </tr></thead><tbody id="tblLogs"></tbody></table>
+            <div class="toolbar" style="margin-top:12px;justify-content:center">
+              <button class="btn ghost small" id="logPrev" disabled>◀</button>
+              <span class="muted" id="logPageInfo">1 / 1</span>
+              <button class="btn ghost small" id="logNext" disabled>▶</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ SETTINGS ═══ -->
+        <section id="view-settings" class="hidden">
+          <div class="card">
+            <div style="font-weight:900" data-i18n="settings.header">Ayarlar</div>
+            <div class="toolbar">
+              <input id="setCompany" placeholder="Şirkət adı" style="flex:1;min-width:200px" />
+              <input id="setCnWh" placeholder="Origin anbar (Çin)" style="flex:1;min-width:200px" />
+              <input id="setAzWh" placeholder="Destination anbar (AZ)" style="flex:1;min-width:200px" />
+            </div>
+            <div class="toolbar">
+              <input id="setCurrency" placeholder="Valyuta (USD)" style="width:150px" />
+              <select id="setLanguage"><option value="az">AZ</option><option value="en">EN</option><option value="tr">TR</option><option value="ru">RU</option><option value="cn">CN</option></select>
+              <button class="btn" id="btnSaveSettings" data-i18n="settings.save">Yadda saxla</button>
+            </div>
+            <hr />
+            <div class="toolbar">
+              <button class="btn ghost" id="btnExportDB">DB JSON ixrac et</button>
+              <button class="btn danger" id="btnChangePass" data-i18n="settings.changePass">Şifrə dəyiş</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Bottom Tab Bar (Mobile) -->
+  <div class="bottom-tabs" id="bottomTabs">
+    <button class="tab-item active" data-view="dashboard">
+      <svg viewBox="0 0 24 24"><use href="#i-dashboard"></use></svg>
+      <span data-i18n="nav.dashboard">Panel</span>
+    </button>
+    <button class="tab-item tab-orders" data-view="orders" data-alt="myorders">
+      <svg viewBox="0 0 24 24"><use href="#i-cart"></use></svg>
+      <span data-i18n="nav.orders">Sifarişlər</span>
+    </button>
+    <button class="tab-item" data-view="tracking">
+      <svg viewBox="0 0 24 24"><use href="#i-radar"></use></svg>
+      <span data-i18n="nav.tracking">İzləmə</span>
+    </button>
+    <button class="tab-item" data-view="calculator">
+      <svg viewBox="0 0 24 24"><use href="#i-calc"></use></svg>
+      <span data-i18n="nav.calculator">Hesabla</span>
+    </button>
+    <button class="tab-item tab-more" id="tabMore">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2"/>
+      </svg>
+      <span>Menyu</span>
+    </button>
+  </div>
+  <!-- Nav Overlay Backdrop -->
+  <div class="nav-overlay" id="navOverlay"></div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/components/dashboard.js"></script>
+<script src="js/components/myorders.js"></script>
+<script src="js/components/myshipments.js"></script>
+<script src="js/components/products.js"></script>
+<script src="js/components/orders.js"></script>
+<script src="js/components/shipments.js"></script>
+<script src="js/components/tracking.js"></script>
+<script src="js/components/reports.js"></script>
+<script src="js/components/inventory.js"></script>
+<script src="js/components/finance.js"></script>
+<script src="js/components/notifications.js"></script>
+<script src="js/components/users.js"></script>
+<script src="js/components/contacts.js"></script>
+<script src="js/components/calculator.js"></script>
+<script src="js/components/logs.js"></script>
+<script src="js/components/settings.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
