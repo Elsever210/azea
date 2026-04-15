@@ -8,12 +8,18 @@
  */
 window.AppConfig = (() => {
   const isFileProtocol = window.location.protocol === 'file:';
+  const isCapacitor = window.location.protocol === 'capacitor:' || window.Capacitor;
   const qs = new URLSearchParams(window.location.search);
   const fromQuery = qs.get('apiBase') || '';
   const fromStorage = localStorage.getItem('apiBaseUrl') || '';
   const fromWindow = typeof window.__API_BASE__ === 'string' ? window.__API_BASE__ : '';
 
-  const defaultApiBase = isFileProtocol ? 'http://10.0.2.2:3000/api' : '/api';
+  let defaultApiBase = '/api';
+  if (isFileProtocol) {
+    defaultApiBase = 'http://10.0.2.2:3000/api'; // Android emulator
+  } else if (isCapacitor) {
+    defaultApiBase = 'http://localhost:3000/api'; // iOS simulator / device
+  }
   const apiBase = (fromQuery || fromStorage || fromWindow || defaultApiBase).replace(/\/+$/, '');
 
   function toApiUrl(path) {

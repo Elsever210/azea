@@ -1,5 +1,9 @@
 {
-  "appId": "com.vsf.globalcargo",
+  "appId": "com.elseveraliyev.vsfglobalcargo",
   "appName": "VSF Global Cargo",
-  "webDir": "public"
+  "webDir": "public",
+  "server": {
+    "allowNavigation": ["*"],
+    "cleartext": true
+  }
 }

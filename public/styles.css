@@ -650,7 +650,7 @@ hr{border:0;border-top:1px solid rgba(0,229,255,.05);margin:16px 0}
   nav{position:static;max-height:none}
   .wrap{padding:12px 16px}
   body::before,body::after,.grid::before{display:none}
-  .grid{gap:14px}
+  .grid{gap:14px;grid-template-columns:1fr}
   header h1{font-size:15px}
   .pill{font-size:9px;padding:3px 10px}
   .calc-grid{grid-template-columns:1fr}
@@ -676,13 +676,15 @@ hr{border:0;border-top:1px solid rgba(0,229,255,.05);margin:16px 0}
   .grid{z-index:auto}
   main{z-index:auto}
 
-  /* Nav collapses */
+  /* Nav collapses — fully hidden by default */
   nav{
     max-height:0;overflow:hidden;
     border:none;border-radius:var(--radius-lg);
     opacity:0;
     margin-bottom:0;
     transition:none;
+    position:absolute;
+    visibility:hidden;
   }
 
   .navbtn{
@@ -780,13 +782,13 @@ hr{border:0;border-top:1px solid rgba(0,229,255,.05);margin:16px 0}
   .grid{gap:8px}
 
   /* Cards  */
-  .cards{grid-template-columns:1fr 1fr;gap:8px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
   .card{padding:14px 14px;border-radius:var(--radius)}
   .card [style*="font-weight:900"]{font-size:13px!important}
-  .kpi{font-size:22px;letter-spacing:-.3px}
-  .kpi-label{font-size:8.5px;letter-spacing:.6px}
-  .kpi-card{padding:14px}
-  .kpi-card .kpi-icon{width:26px;height:26px;font-size:12px;margin-bottom:6px;border-radius:7px}
+  .kpi{font-size:20px;letter-spacing:-.3px}
+  .kpi-label{font-size:8px;letter-spacing:.5px}
+  .kpi-card{padding:12px}
+  .kpi-card .kpi-icon{width:24px;height:24px;font-size:11px;margin-bottom:5px;border-radius:6px}
 
   /* Table */
   .card:has(table){padding:10px 8px}
@@ -961,6 +963,7 @@ hr{border:0;border-top:1px solid rgba(0,229,255,.05);margin:16px 0}
     -webkit-backdrop-filter:blur(24px);
     overflow-y:auto;
     opacity:1;margin-bottom:0;
+    visibility:visible;
     padding-top:0;
     padding-bottom:calc(16px + env(safe-area-inset-bottom, 0px));
     box-shadow:0 -8px 50px rgba(0,0,0,.5),0 0 40px rgba(0,229,255,.03);
@@ -1086,4 +1089,36 @@ body .grid::after{
   animation:auraFloat 35s ease-in-out infinite alternate;
   border-radius:50%;
   filter:blur(40px);
+}
+
+/* ═══ CAPACITOR / iOS SPECIFIC ═══ */
+html{
+  padding-top:env(safe-area-inset-top, 0px);
+  padding-left:env(safe-area-inset-left, 0px);
+  padding-right:env(safe-area-inset-right, 0px);
+}
+body{
+  -webkit-text-size-adjust:100%;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  user-select:none;
+  overscroll-behavior:none;
+}
+body input,body textarea,body select{
+  -webkit-user-select:auto;
+  user-select:auto;
+}
+
+/* Capacitor iOS status bar area */
+@supports(padding-top:env(safe-area-inset-top)){
+  header{
+    padding-top:env(safe-area-inset-top, 0px);
+  }
+  .bottom-tabs{
+    padding-bottom:calc(4px + env(safe-area-inset-bottom, 0px));
+  }
+  #loginView{
+    padding-top:env(safe-area-inset-top, 0px);
+    padding-bottom:env(safe-area-inset-bottom, 0px);
+  }
 }
